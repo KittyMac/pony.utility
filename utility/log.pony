@@ -1,16 +1,18 @@
 use "StringExt"
 
+use @printf[U32](format:Pointer[U8] tag, ...)
+
 primitive Log
 
 	fun printHeader(string:String) =>
 		let s = string.size() + 16
 		let bar = "-".mul(s)
 		let space = " ".mul(8)
-		@printf[U32]("\n".cstring())
-		@printf[U32]("\r+%s+\n".cstring(), bar.cstring())
-		@printf[U32]("\r|%s%s%s|\n".cstring(), space.cstring(), string.cstring(), space.cstring())
-		@printf[U32]("\r+%s+\n".cstring(), bar.cstring())
-		@printf[U32]("\n".cstring())
+		@printf("\n".cstring())
+		@printf("\r+%s+\n".cstring(), bar.cstring())
+		@printf("\r|%s%s%s|\n".cstring(), space.cstring(), string.cstring(), space.cstring())
+		@printf("\r+%s+\n".cstring(), bar.cstring())
+		@printf("\n".cstring())
 
 	fun println(fmt:String, 
     				  arg0:Stringable box = "",
@@ -33,7 +35,7 @@ primitive Log
       				arg17:Stringable box = "",
       				arg18:Stringable box = "",
       				arg19:Stringable box = "") =>
-		@printf[U32]("%s\n".cstring(), StringExt.format(fmt, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17, arg18, arg19).cstring())
+		@printf("%s\n".cstring(), StringExt.format(fmt, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17, arg18, arg19).cstring())
 		
 	fun print(fmt:String, 
     				  arg0:Stringable box = "",
@@ -56,6 +58,6 @@ primitive Log
       				arg17:Stringable box = "",
       				arg18:Stringable box = "",
       				arg19:Stringable box = "") =>
-		@printf[U32]("%s".cstring(), StringExt.format(fmt, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17, arg18, arg19).cstring())
+		@printf("%s".cstring(), StringExt.format(fmt, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17, arg18, arg19).cstring())
 		
 		
