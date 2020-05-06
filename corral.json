@@ -1,6 +1,9 @@
 {
   "deps": [
     {
+      "locator": "/Volumes/Development/Development/pony/regex"
+    },
+    {
       "locator": "/Volumes/Development/Development/pony/pony.stringext"
     }
   ],
