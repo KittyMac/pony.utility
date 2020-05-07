@@ -9,7 +9,7 @@ test:
 	./build/utility
 
 lldb:
-	corral exec -- lldb ponyc -- -V=0 -o ./build/ ./utility
+	corral run -- lldb ponyc -- -V=0 -o ./build/ ./utility
 	./build/utility
 
 
